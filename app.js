@@ -9,4 +9,7 @@ class robot{
     get getHealth(){
         return this.health;
     }
+    get getAttackPower(){
+        
+    }
 }
