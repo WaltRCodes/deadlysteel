@@ -35,5 +35,12 @@ class robot{
 const startGame = () =>{
     let player1 = new robot("player1");
     console.log(player1.getHealth +" "+ player1.getAttackPower);
+    player1.takeDamage(50);
+    player1.takeDamage(50);
+    player1.getBattery();
+    console.log(player1.getAttackPower);
+    player1.removeBattery();
+    console.log(player1.getAttackPower);
+    
 }
 startGame();
