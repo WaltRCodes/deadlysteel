@@ -23,6 +23,6 @@ class robot{
     }
     //this function damaging the robot
     takeDamage(damage){
-
+        this.health-=damage;
     }
 }
