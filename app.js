@@ -5,4 +5,7 @@ class robot{
         this.health = 100;
         this.attackPower = 10;
     }
+    get getHealth(){
+        
+    }
 }
