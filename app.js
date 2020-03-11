@@ -13,4 +13,8 @@ class robot{
     get getAttackPower(){
         return this.attackPower;
     }
+    //this function updates the attack power when a robot gets a battery
+    getBattery(){
+        this.attackPower+=5;
+    }
 }
