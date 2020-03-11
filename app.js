@@ -21,4 +21,8 @@ class robot{
     removeBattery(){
         this.attackPower-=5;
     }
+    //this function damaging the robot
+    takeDamage(damage){
+
+    }
 }
