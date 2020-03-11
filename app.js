@@ -24,5 +24,8 @@ class robot{
     //this function handles damaging the robot
     takeDamage(damage){
         this.health-=damage;
+        if(this.health<=0){
+
+        }
     }
 }
