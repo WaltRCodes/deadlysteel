@@ -17,7 +17,8 @@ class robot{
     getBattery(){
         this.attackPower+=5;
     }
+    //this function removes the battery from the robot
     removeBattery(){
-        
+        this.attackPower-=5;
     }
 }
