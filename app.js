@@ -25,7 +25,7 @@ class robot{
     takeDamage(damage){
         this.health-=damage;
         if(this.health<=0){
-
+            console.log(`${this.name} has lost`);
         }
     }
 }
