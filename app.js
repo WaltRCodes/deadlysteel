@@ -31,3 +31,7 @@ class robot{
         }
     }
 }
+//this function starts the game
+const startGame = () =>{
+    
+}
