@@ -33,5 +33,7 @@ class robot{
 }
 //this function starts the game
 const startGame = () =>{
-    let player1 = new robot();
+    let player1 = new robot("player1");
+    console.log(player1.getHealth +" "+ player1.getAttackPower);
 }
+startGame();
