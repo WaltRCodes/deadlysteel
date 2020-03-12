@@ -44,3 +44,36 @@ const startGame = () =>{
     
 }
 startGame();
+let player1 = document.getElementById("player1");
+let player1col=1;
+let player1row=1;
+player1.style.gridColumn=player1col;
+player1.style.gridRow=player1row;
+
+const moveDown = (player) =>{
+    if (player1row!=3){
+        player1row++;
+    }
+    player.style.gridRow=player1row;
+}
+const moveUp = (player) =>{
+    if (player1row!=1){
+        player1row--;
+    }
+    player.style.gridRow=player1row;
+}
+const moveLeft = (player) =>{
+    if (player1col!=1){
+        player1col--;
+    }
+    player.style.gridColumn=player1col;
+}
+const moveRight = (player) =>{
+    if (player1col!=6){
+        player1col++;
+        console.log(player1col, 'col')
+    }
+    player.style.gridColumn=player1col;
+}
+
+

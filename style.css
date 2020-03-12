@@ -17,8 +17,12 @@
         background-image: url("./assets/sprites/player1_walk_down_pt2.png");
     }
   }
-.class{
+.grid{
     display: grid;
     grid-template-columns: repeat(6, 100px);
     grid-template-rows: repeat(3, 100px);
+}
+#x{
+    grid-column: 6;
+    grid-row: 3;
 }
