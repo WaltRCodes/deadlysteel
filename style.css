@@ -6,5 +6,10 @@
     background-size: 100% 100%;
 }
 @keyframes walkDown {
-    
+    from {
+        background-image: url("./assets/sprites/player1_walk_down_pt1.png");
+    }
+    to {
+        background-image: url("./assets/sprites/player1_walk_down_pt2.png");
+    }
   }
