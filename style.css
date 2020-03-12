@@ -6,7 +6,7 @@
     background-size: 100% 100%;
     /*animation: walkRight 1s ease-in-out infinite;*/
 }
-@keyframes walkDown {
+@keyframes P1walkDown {
     0%{
         background-image: url("./assets/sprites/player1_walk_down_pt2.png");
     }
@@ -17,7 +17,7 @@
         background-image: url("./assets/sprites/player1_walk_down_pt2.png");
     }
 }
-@keyframes walkUp {
+@keyframes P1walkUp {
     0%{
         background-image: url("./assets/sprites/player1_walk_up_pt2.png");
     }
@@ -28,7 +28,7 @@
         background-image: url("./assets/sprites/player1_walk_up_pt2.png");
     }
 }
-@keyframes walkLeft {
+@keyframes P1walkLeft {
     0%{
         background-image: url("./assets/sprites/player1_walk_left_pt2.png");
     }
@@ -39,7 +39,7 @@
         background-image: url("./assets/sprites/player1_walk_left_pt2.png");
     }
 }
-@keyframes walkRight {
+@keyframes P1walkRight {
     0%{
         background-image: url("./assets/sprites/player1_walk_right_pt2.png");
     }

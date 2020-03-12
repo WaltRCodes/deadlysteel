@@ -27,28 +27,28 @@ class robot{
     }
 
     moveDown = () =>{
-        this.htmlElement.style.animation="walkDown  1s ease-in-out infinite";
+        this.htmlElement.style.animation=`${this.name}walkDown  1s ease-in-out infinite`;
         if (this.row!=3){
             this.row++;
             this.htmlElement.style.gridRow=this.row;
         }
     }
     moveUp = () =>{
-        this.htmlElement.style.animation="walkUp  1s ease-in-out infinite";
+        this.htmlElement.style.animation=`${this.name}walkUp  1s ease-in-out infinite`;
         if (this.row!=1){
             this.row--;
             this.htmlElement.style.gridRow=this.row;
         }
     }
     moveLeft = () =>{
-        this.htmlElement.style.animation="walkLeft  1s ease-in-out infinite";
+        this.htmlElement.style.animation=`${this.name}walkLeft  1s ease-in-out infinite`;
         if (this.column!=1){
             this.column--;
             this.htmlElement.style.gridColumn=this.column;
         }
     }
     moveRight = () =>{
-        this.htmlElement.style.animation="walkRight  1s ease-in-out infinite";
+        this.htmlElement.style.animation=`${this.name}walkRight  1s ease-in-out infinite`;
         if (this.column!=6){
             this.column++;
             this.htmlElement.style.gridColumn=this.column;
@@ -59,7 +59,7 @@ class robot{
     setUp(){
         this.htmlElement.style.gridColumn=this.column;
         this.htmlElement.style.gridRow=this.row;
-        this.htmlElement.style.animation="walkDown 1s ease-in-out infinite";
+        this.htmlElement.style.animation=`${this.name}walkDown 1s ease-in-out infinite`;
     }
     //this method returns the robot's health
     get getHealth(){
@@ -152,7 +152,7 @@ startGame();
 //         player.style.gridColumn=player1col;
 //     }
 // }
-let player1 = new robot("player1",document.getElementById("player1"),1,1,"ArrowUp","ArrowDown","ArrowLeft","ArrowRight");
+let player1 = new robot("P1",document.getElementById("player1"),1,1,"ArrowUp","ArrowDown","ArrowLeft","ArrowRight");
     
 // function moveCheck(code,playerObj){
 //     if(code===playerObj.getUpKey){
