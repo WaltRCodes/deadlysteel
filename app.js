@@ -50,6 +50,12 @@ let player1row=1;
 player1.style.gridColumn=player1col;
 player1.style.gridRow=player1row;
 
+document.addEventListener('keydown', logKey);
+
+function logKey(e) {
+  lconsole.log(`${e.code}`);
+}
+
 const moveDown = (player) =>{
     if (player1row!=3){
         player1row++;
