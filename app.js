@@ -50,26 +50,31 @@ let player1col=1;
 let player1row=1;
 player1.style.gridColumn=player1col;
 player1.style.gridRow=player1row;
+player1.style.animation="walkRight 1s ease-in-out infinite";
 
 const moveDown = (player) =>{
+    player.style.animation="walkDown  1s ease-in-out infinite";
     if (player1row!=3){
         player1row++;
     }
     player.style.gridRow=player1row;
 }
 const moveUp = (player) =>{
+    player.style.animation="walkUp  1s ease-in-out infinite";
     if (player1row!=1){
         player1row--;
     }
     player.style.gridRow=player1row;
 }
 const moveLeft = (player) =>{
+    player.style.animation="walkLeft  1s ease-in-out infinite";
     if (player1col!=1){
         player1col--;
     }
     player.style.gridColumn=player1col;
 }
 const moveRight = (player) =>{
+    player.style.animation="walkRight  1s ease-in-out infinite";
     if (player1col!=6){
         player1col++;
         console.log(player1col, 'col')
