@@ -19,13 +19,35 @@
 }
 @keyframes walkUp {
     0%{
-        background-image: url("./assets/sprites/player1_walk_Up_pt2.png");
+        background-image: url("./assets/sprites/player1_walk_up_pt2.png");
     }
     50% {
-        background-image: url("./assets/sprites/player1_walk_Up_pt1.png");
+        background-image: url("./assets/sprites/player1_walk_up_pt1.png");
     }
     100%{
-        background-image: url("./assets/sprites/player1_walk_Up_pt2.png");
+        background-image: url("./assets/sprites/player1_walk_up_pt2.png");
+    }
+}
+@keyframes walkLeft {
+    0%{
+        background-image: url("./assets/sprites/player1_walk_left_pt2.png");
+    }
+    50% {
+        background-image: url("./assets/sprites/player1_walk_left_pt1.png");
+    }
+    100%{
+        background-image: url("./assets/sprites/player1_walk_left_pt2.png");
+    }
+}
+@keyframes walkRight {
+    0%{
+        background-image: url("./assets/sprites/player1_walk_right_pt2.png");
+    }
+    50% {
+        background-image: url("./assets/sprites/player1_walk_right_pt1.png");
+    }
+    100%{
+        background-image: url("./assets/sprites/player1_walk_right_pt2.png");
     }
 }
 .grid{
