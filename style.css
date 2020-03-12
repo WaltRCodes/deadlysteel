@@ -1,4 +1,7 @@
 #robot{
     height:100px;
     width:100px;
+    background-image: url("./assets/sprites/player1_walk_down_pt1.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
