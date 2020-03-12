@@ -4,12 +4,16 @@
     background-image: url("./assets/sprites/player1_walk_down_pt1.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    animation: walkDown 1s ease-in-out infinite;
 }
 @keyframes walkDown {
-    from {
+    0%{
+        background-image: url("./assets/sprites/player1_walk_down_pt2.png");
+    }
+    50% {
         background-image: url("./assets/sprites/player1_walk_down_pt1.png");
     }
-    to {
+    100%{
         background-image: url("./assets/sprites/player1_walk_down_pt2.png");
     }
   }
