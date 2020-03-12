@@ -44,6 +44,7 @@ const startGame = () =>{
     
 }
 startGame();
+//insert these 3 and 4 keyboard keys into the class later
 let player1 = document.getElementById("player1");
 let player1col=1;
 let player1row=1;

@@ -16,7 +16,18 @@
     100%{
         background-image: url("./assets/sprites/player1_walk_down_pt2.png");
     }
-  }
+}
+@keyframes walkUp {
+    0%{
+        background-image: url("./assets/sprites/player1_walk_Up_pt2.png");
+    }
+    50% {
+        background-image: url("./assets/sprites/player1_walk_Up_pt1.png");
+    }
+    100%{
+        background-image: url("./assets/sprites/player1_walk_Up_pt2.png");
+    }
+}
 .grid{
     display: grid;
     grid-template-columns: repeat(6, 100px);
