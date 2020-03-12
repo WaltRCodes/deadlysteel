@@ -17,3 +17,6 @@
         background-image: url("./assets/sprites/player1_walk_down_pt2.png");
     }
   }
+.class{
+    display: grid;
+}
