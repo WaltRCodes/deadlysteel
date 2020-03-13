@@ -12,6 +12,103 @@
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
+
+@keyframes P1punchLeft {
+    0%{
+        background-image: url("./assets/sprites/player1_punch_left_pt1.png");
+    }
+    50% {
+        background-image: url("./assets/sprites/player1_punch_left_pt2.png");
+    }
+    100%{
+        background-image: url("./assets/sprites/player1_punch_left_pt3.png");
+    }
+}
+
+@keyframes P2punchLeft {
+    0%{
+        background-image: url("./assets/sprites/player2_punch_left_pt1.png");
+    }
+    50% {
+        background-image: url("./assets/sprites/player2_punch_left_pt2.png");
+    }
+    100%{
+        background-image: url("./assets/sprites/player2_punch_left_pt3.png");
+    }
+}
+
+@keyframes P1punchRight {
+    0%{
+        background-image: url("./assets/sprites/player1_punch_right_pt1.png");
+    }
+    50% {
+        background-image: url("./assets/sprites/player1_punch_right_pt2.png");
+    }
+    100%{
+        background-image: url("./assets/sprites/player1_punch_right_pt3.png");
+    }
+}
+
+@keyframes P2punchRight {
+    0%{
+        background-image: url("./assets/sprites/player2_punch_right_pt1.png");
+    }
+    50% {
+        background-image: url("./assets/sprites/player2_punch_right_pt2.png");
+    }
+    100%{
+        background-image: url("./assets/sprites/player2_punch_right_pt3.png");
+    }
+}
+
+@keyframes P1shootLeft {
+    0%{
+        background-image: url("./assets/sprites/player1_shoot_left_pt1.png");
+    }
+    50% {
+        background-image: url("./assets/sprites/player1_shoot_left_pt2.png");
+    }
+    100%{
+        background-image: url("./assets/sprites/player1_shoot_left_pt3.png");
+    }
+}
+
+@keyframes P2shootLeft {
+    0%{
+        background-image: url("./assets/sprites/player2_shoot_left_pt1.png");
+    }
+    50% {
+        background-image: url("./assets/sprites/player2_shoot_left_pt2.png");
+    }
+    100%{
+        background-image: url("./assets/sprites/player2_shoot_left_pt3.png");
+    }
+}
+
+@keyframes P1shootRight {
+    0%{
+        background-image: url("./assets/sprites/player1_shoot_right_pt1.png");
+    }
+    50% {
+        background-image: url("./assets/sprites/player1_shoot_right_pt2.png");
+    }
+    100%{
+        background-image: url("./assets/sprites/player1_shoot_right_pt3.png");
+    }
+}
+
+@keyframes P2shootRight {
+    0%{
+        background-image: url("./assets/sprites/player2_shoot_right_pt1.png");
+    }
+    50% {
+        background-image: url("./assets/sprites/player2_shoot_right_pt2.png");
+    }
+    100%{
+        background-image: url("./assets/sprites/player2_shoot_right_pt3.png");
+    }
+}
+
 @keyframes P1walkDown {
     0%{
         background-image: url("./assets/sprites/player1_walk_down_pt2.png");
