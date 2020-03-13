@@ -188,10 +188,12 @@ function logKey(e) {
     player1.moveCheck(e.code);
     if(collisionCheck(player1.getRow,player1.getCol,player2.getRow,player2.getCol)){
         console.log("robot collision!");
+        document.getElementById("battleScreen").style.display="block";
     }
     player2.moveCheck(e.code);
     if(collisionCheck(player1.getRow,player1.getCol,player2.getRow,player2.getCol)){
         console.log("robot collision!");
+        document.getElementById("battleScreen").style.display="block";
     }
     // if(e.code==="ArrowUp"){
     //     moveUp(player1);
