@@ -50,6 +50,50 @@
         background-image: url("./assets/sprites/player1_walk_right_pt2.png");
     }
 }
+@keyframes P2walkDown {
+    0%{
+        background-image: url("./assets/sprites/player2_walk_down_pt2.png");
+    }
+    50% {
+        background-image: url("./assets/sprites/player2_walk_down_pt1.png");
+    }
+    100%{
+        background-image: url("./assets/sprites/player2_walk_down_pt2.png");
+    }
+}
+@keyframes P2walkUp {
+    0%{
+        background-image: url("./assets/sprites/player2_walk_up_pt2.png");
+    }
+    50% {
+        background-image: url("./assets/sprites/player2_walk_up_pt1.png");
+    }
+    100%{
+        background-image: url("./assets/sprites/player2_walk_up_pt2.png");
+    }
+}
+@keyframes P2walkLeft {
+    0%{
+        background-image: url("./assets/sprites/player2_walk_left_pt2.png");
+    }
+    50% {
+        background-image: url("./assets/sprites/player2_walk_left_pt1.png");
+    }
+    100%{
+        background-image: url("./assets/sprites/player2_walk_left_pt2.png");
+    }
+}
+@keyframes P2walkRight {
+    0%{
+        background-image: url("./assets/sprites/player2_walk_right_pt2.png");
+    }
+    50% {
+        background-image: url("./assets/sprites/player2_walk_right_pt1.png");
+    }
+    100%{
+        background-image: url("./assets/sprites/player2_walk_right_pt2.png");
+    }
+}
 .grid{
     display: grid;
     grid-template-columns: repeat(6, 100px);
