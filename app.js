@@ -85,6 +85,12 @@ class robot{
     get getRightKey(){
         return this.rightKey;
     }
+    get getRow(){
+        return this.row;
+    }
+    get getCol(){
+        return this.column;
+    }
     //this function updates the attack power when a robot gets a battery
     getBattery(){
         this.attackPower+=5;
@@ -167,12 +173,26 @@ let player2 = new robot("P2",document.getElementById("player2"),3,6,"KeyW","KeyS
 //     }
 // }
 
+const collisionCheck=(obj1row,obj1col,obj2row,obj2col)=>{
+    if(obj1row===obj2row&&obj1col===obj2col){
+        return true;
+    } else {
+        return false;
+    }
+}
+
 document.addEventListener('keydown', logKey);
 
 function logKey(e) {
     console.log(`${e.code}`);
     player1.moveCheck(e.code);
+    if(collisionCheck(player1.getRow,player1.getCol,player2.getRow,player2.getCol)){
+        console.log("robot collision!");
+    }
     player2.moveCheck(e.code);
+    if(collisionCheck(player1.getRow,player1.getCol,player2.getRow,player2.getCol)){
+        console.log("robot collision!");
+    }
     // if(e.code==="ArrowUp"){
     //     moveUp(player1);
     // } else if(e.code==="ArrowDown"){
