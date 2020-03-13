@@ -172,6 +172,7 @@ document.addEventListener('keydown', logKey);
 function logKey(e) {
     console.log(`${e.code}`);
     player1.moveCheck(e.code);
+    player2.moveCheck(e.code);
     // if(e.code==="ArrowUp"){
     //     moveUp(player1);
     // } else if(e.code==="ArrowDown"){
