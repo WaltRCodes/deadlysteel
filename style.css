@@ -214,15 +214,18 @@
     left:0;
 }
   
-  @keyframes blowUpModal {
+@keyframes blowUpModal {
     0% {
       transform:scale(0);
     }
     100% {
       transform:scale(1);
     }
-  }
-
+}
+.row{
+    display:flex;
+    flex-direction: row;
+}
   
 /*#x{
     grid-column: 6;
