@@ -112,8 +112,21 @@
     height: 100%;
     transition: all 1s;
     display: none;
+    position: fixed;
+    top: 0;
+    left:0;
 }
+  
+  @keyframes blowUpModal {
+    0% {
+      transform:scale(0);
+    }
+    100% {
+      transform:scale(1);
+    }
+  }
 
+  
 /*#x{
     grid-column: 6;
     grid-row: 3;

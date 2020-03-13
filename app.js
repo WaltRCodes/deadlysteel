@@ -189,11 +189,13 @@ function logKey(e) {
     if(collisionCheck(player1.getRow,player1.getCol,player2.getRow,player2.getCol)){
         console.log("robot collision!");
         document.getElementById("battleScreen").style.display="block";
+        document.getElementById("battleScreen").style.animation=`blowUpModal .5s  forwards`;
     }
     player2.moveCheck(e.code);
     if(collisionCheck(player1.getRow,player1.getCol,player2.getRow,player2.getCol)){
         console.log("robot collision!");
         document.getElementById("battleScreen").style.display="block";
+        document.getElementById("battleScreen").style.animation=`blowUpModal .5s  forwards`;
     }
     // if(e.code==="ArrowUp"){
     //     moveUp(player1);
