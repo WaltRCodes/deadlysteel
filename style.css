@@ -6,6 +6,12 @@
     background-size: 100% 100%;
     /*animation: walkRight 1s ease-in-out infinite;*/
 }
+#player2{
+    height:100px;
+    width:100px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
 @keyframes P1walkDown {
     0%{
         background-image: url("./assets/sprites/player1_walk_down_pt2.png");
