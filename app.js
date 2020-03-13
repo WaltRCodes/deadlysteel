@@ -153,6 +153,7 @@ startGame();
 //     }
 // }
 let player1 = new robot("P1",document.getElementById("player1"),1,1,"ArrowUp","ArrowDown","ArrowLeft","ArrowRight");
+let player2 = new robot("P2",document.getElementById("player2"),3,6,"KeyW","KeyS","KeyA","KeyD");
     
 // function moveCheck(code,playerObj){
 //     if(code===playerObj.getUpKey){
