@@ -99,7 +99,7 @@
     grid-template-columns: repeat(6, 100px);
     grid-template-rows: repeat(3, 100px);
 }
-#x{
+/*#x{
     grid-column: 6;
     grid-row: 3;
-}
+}*/
