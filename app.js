@@ -1,6 +1,6 @@
 //creating a robot class in order to encompas all the functions and values that the players will utilize
 class robot{
-    constructor(name,htmlElement,row,column,upKey,downKey,leftKey,rightKey){
+    constructor(name,htmlElement,row,column,upKey,downKey,leftKey,rightKey,screenSide){
         this.name = name;
         this.health = 100;
         this.attackPower = 10;
@@ -11,19 +11,24 @@ class robot{
         this.downKey=downKey;
         this.leftKey=leftKey;
         this.rightKey=rightKey;
+        this.screenSide=screenSide;
+        this.onTheGrid=true;
         this.setUp();
     }
 
-    moveCheck =(code)=>{
-        if(code===this.upKey){
-            this.moveUp();
-        } else if(code===this.downKey){
-            this.moveDown();
-        } else if(code===this.leftKey){
-            this.moveLeft();
-        } else if(code===this.rightKey){
-            this.moveRight();
+    keyCheck =(code)=>{
+        if(this.onTheGrid){
+            if(code===this.upKey){
+                this.moveUp();
+            } else if(code===this.downKey){
+                this.moveDown();
+            } else if(code===this.leftKey){
+                this.moveLeft();
+            } else if(code===this.rightKey){
+                this.moveRight();
+            }
         }
+        
     }
 
     moveDown = () =>{
@@ -187,13 +192,13 @@ document.addEventListener('keydown', logKey);
 
 function logKey(e) {
     console.log(`${e.code}`);
-    player1.moveCheck(e.code);
+    player1.keyCheck(e.code);
     if(collisionCheck(player1.getRow,player1.getCol,player2.getRow,player2.getCol)){
         console.log("robot collision!");
         document.getElementById("battleScreen").style.display="block";
         document.getElementById("battleScreen").style.animation=`blowUpModal .5s  forwards`;
     }
-    player2.moveCheck(e.code);
+    player2.keyCheck(e.code);
     if(collisionCheck(player1.getRow,player1.getCol,player2.getRow,player2.getCol)){
         console.log("robot collision!");
         document.getElementById("battleScreen").style.display="block";
