@@ -27,7 +27,14 @@ class robot{
             } else if(code===this.rightKey){
                 this.moveRight();
             }
+        } else{
+            
         }
+        
+    }
+
+    offTheGrid=()=>{
+        this.onTheGrid=false;
         
     }
 
