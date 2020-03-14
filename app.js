@@ -35,7 +35,13 @@ class robot{
 
     offTheGrid=()=>{
         this.onTheGrid=false;
-        
+        document.getElementById(`${this.screenSide}`).style.backgroundImage=`url('./assets/sprites/${this.name}_stand_${this.screenSide}.png')`;
+        document.getElementById(`${this.screenSide}Instructions`).innerHTML=`
+        <p>${this.name} Health: <span id="${this.screenSide}HealthUnits">${this.health}</span></p>
+        <p>${this.upKey} to shoot laser(-1)battery</p>
+        <p>${this.leftKey} to block</p>
+        <p>${this.rightKey} to punch</p>`;
+
     }
 
     moveDown = () =>{
@@ -114,6 +120,7 @@ class robot{
     //this function handles damaging the robot
     takeDamage(damage){
         this.health-=damage;
+        document.getElementById(`${this.screenSide}HealthUnits`).innerHTML=`${this.health}`;
         if(this.health<=0){
             console.log(`${this.name} has lost`);
         } else{
@@ -133,7 +140,7 @@ const startGame = () =>{
     // console.log(player1.getAttackPower);
     // player1.removeBattery();
     // console.log(player1.getAttackPower);
-    player1 = new robot("P1",document.getElementById("player1"),1,1,"ArrowUp","ArrowDown","ArrowLeft","ArrowRight");
+    player1 = new robot("P1",document.getElementById("player1"),1,1,"ArrowUp","ArrowDown","ArrowLeft","ArrowRight","left");
 
 }
 startGame();
@@ -173,7 +180,7 @@ startGame();
 //         player.style.gridColumn=player1col;
 //     }
 // }
-let player2 = new robot("P2",document.getElementById("player2"),3,6,"KeyW","KeyS","KeyA","KeyD");
+let player2 = new robot("P2",document.getElementById("player2"),3,6,"KeyW","KeyS","KeyA","KeyD","right");
     
 // function moveCheck(code,playerObj){
 //     if(code===playerObj.getUpKey){
@@ -204,12 +211,16 @@ function logKey(e) {
         console.log("robot collision!");
         document.getElementById("battleScreen").style.display="block";
         document.getElementById("battleScreen").style.animation=`blowUpModal .5s  forwards`;
+        player1.offTheGrid();
+        player2.offTheGrid();
     }
     player2.keyCheck(e.code);
     if(collisionCheck(player1.getRow,player1.getCol,player2.getRow,player2.getCol)){
         console.log("robot collision!");
         document.getElementById("battleScreen").style.display="block";
         document.getElementById("battleScreen").style.animation=`blowUpModal .5s  forwards`;
+        player1.offTheGrid();
+        player2.offTheGrid();
     }
     // if(e.code==="ArrowUp"){
     //     moveUp(player1);
