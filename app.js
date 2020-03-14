@@ -138,6 +138,10 @@ class robot{
         
         if(this.health<=0){
             console.log(`${this.name} has lost`);
+            
+            document.getElementById(`${this.screenSide}Holder`).style.animation=`blowInModal .5s  forwards`;
+            //document.getElementById(`${this.screenSide}Holder`).style.display="none";
+        
         } else{
             console.log(`${this.name} has taken damage`);
         }

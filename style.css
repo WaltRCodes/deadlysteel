@@ -246,6 +246,8 @@
 .row{
     display:flex;
     flex-direction: row;
+    width:100%;
+    
 }
 .col{
     display:flex;
@@ -253,6 +255,7 @@
     align-items: center;
     text-align: center;
     padding: 20px;
+    background-color: blue;
 }
 /*#x{
     grid-column: 6;
