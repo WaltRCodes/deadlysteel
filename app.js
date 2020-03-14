@@ -13,6 +13,7 @@ class robot{
         this.rightKey=rightKey;
         this.screenSide=screenSide;
         this.onTheGrid=true;
+        this.batteries=0;
         this.setUp();
     }
 
@@ -28,7 +29,18 @@ class robot{
                 this.moveRight();
             }
         } else{
-            
+            if(code===this.upKey){
+                document.getElementById(`${this.screenSide}`).style.animation='';
+                document.getElementById(`${this.screenSide}`).style.animation=`${this.name}shoot${this.screenSide}  1s ease-in-out 1`;
+                
+            } else if(code===this.leftKey){
+                this.moveLeft();
+            } else if(code===this.rightKey){
+                this.moveRight();
+                document.getElementById(`${this.screenSide}`).style.animation='';
+                document.getElementById(`${this.screenSide}`).style.animation=`${this.name}punch${this.screenSide}  1s ease-in-out 1`;
+               
+            }
         }
         
     }
@@ -111,11 +123,11 @@ class robot{
     }
     //this function updates the attack power when a robot gets a battery
     getBattery(){
-        this.attackPower+=5;
+        this.batteries++;
     }
     //this function removes the battery from the robot
     removeBattery(){
-        this.attackPower-=5;
+        this.batteries--;
     }
     //this function handles damaging the robot
     takeDamage(damage){
