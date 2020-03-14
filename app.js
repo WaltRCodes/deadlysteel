@@ -109,17 +109,20 @@ class robot{
         }
     }
 }
+
+let player1;
 //this function starts the game
 const startGame = () =>{
-    let player1 = new robot("player1",document.getElementById("player1"),1,1);
-    console.log(player1.getHealth +" "+ player1.getAttackPower);
-    player1.takeDamage(50);
-    player1.takeDamage(50);
-    player1.getBattery();
-    console.log(player1.getAttackPower);
-    player1.removeBattery();
-    console.log(player1.getAttackPower);
-    
+    // let player1 = new robot("player1",document.getElementById("player1"),1,1);
+    // console.log(player1.getHealth +" "+ player1.getAttackPower);
+    // player1.takeDamage(50);
+    // player1.takeDamage(50);
+    // player1.getBattery();
+    // console.log(player1.getAttackPower);
+    // player1.removeBattery();
+    // console.log(player1.getAttackPower);
+    player1 = new robot("P1",document.getElementById("player1"),1,1,"ArrowUp","ArrowDown","ArrowLeft","ArrowRight");
+
 }
 startGame();
 //insert these 3 and 4 keyboard keys into the class later
@@ -158,7 +161,6 @@ startGame();
 //         player.style.gridColumn=player1col;
 //     }
 // }
-let player1 = new robot("P1",document.getElementById("player1"),1,1,"ArrowUp","ArrowDown","ArrowLeft","ArrowRight");
 let player2 = new robot("P2",document.getElementById("player2"),3,6,"KeyW","KeyS","KeyA","KeyD");
     
 // function moveCheck(code,playerObj){
