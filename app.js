@@ -32,17 +32,17 @@ class robot{
             if(code===this.upKey){
                 document.getElementById(`${this.screenSide}`).style.animation='';
                 document.getElementById(`${this.screenSide}`).style.animation=`${this.name}shoot${this.screenSide}  1s ease-in-out 1`;
-                
+                return this.attackPower+(this.batteries*5);
             } else if(code===this.leftKey){
                 this.moveLeft();
             } else if(code===this.rightKey){
                 this.moveRight();
                 document.getElementById(`${this.screenSide}`).style.animation='';
                 document.getElementById(`${this.screenSide}`).style.animation=`${this.name}punch${this.screenSide}  1s ease-in-out 1`;
-               
+               return this.attackPower;
             }
         }
-        
+        return 0;
     }
 
     offTheGrid=()=>{
@@ -132,7 +132,10 @@ class robot{
     //this function handles damaging the robot
     takeDamage(damage){
         this.health-=damage;
-        document.getElementById(`${this.screenSide}HealthUnits`).innerHTML=`${this.health}`;
+        if(!this.onTheGrid){
+            document.getElementById(`${this.screenSide}HealthUnits`).innerHTML=`${this.health}`;
+        }
+        
         if(this.health<=0){
             console.log(`${this.name} has lost`);
         } else{
@@ -215,24 +218,28 @@ const collisionCheck=(obj1row,obj1col,obj2row,obj2col)=>{
 }
 
 document.addEventListener('keydown', logKey);
-
+let battlecheck = true;
 function logKey(e) {
     console.log(`${e.code}`);
-    player1.keyCheck(e.code);
-    if(collisionCheck(player1.getRow,player1.getCol,player2.getRow,player2.getCol)){
+    player2.takeDamage(player1.keyCheck(e.code));
+    
+    if(collisionCheck(player1.getRow,player1.getCol,player2.getRow,player2.getCol)&&battlecheck){
         console.log("robot collision!");
         document.getElementById("battleScreen").style.display="block";
         document.getElementById("battleScreen").style.animation=`blowUpModal .5s  forwards`;
         player1.offTheGrid();
         player2.offTheGrid();
+        battlecheck=false;
     }
-    player2.keyCheck(e.code);
-    if(collisionCheck(player1.getRow,player1.getCol,player2.getRow,player2.getCol)){
+    player1.takeDamage(player2.keyCheck(e.code));
+    
+    if(collisionCheck(player1.getRow,player1.getCol,player2.getRow,player2.getCol)&&battlecheck){
         console.log("robot collision!");
         document.getElementById("battleScreen").style.display="block";
         document.getElementById("battleScreen").style.animation=`blowUpModal .5s  forwards`;
         player1.offTheGrid();
         player2.offTheGrid();
+        battlecheck=false;
     }
     // if(e.code==="ArrowUp"){
     //     moveUp(player1);
