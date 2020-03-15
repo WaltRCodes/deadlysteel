@@ -241,12 +241,21 @@ const collisionCheck=(obj1row,obj1col,obj2row,obj2col)=>{
     }
 }
 
+const winCheck =(player1Health,player2Health)=>{
+    let decision = document.getElementById("decision");
+    if(player1Health<=0&&player2Health<=0){
+        decision.innerHTML="Its a Draw!";
+    } else if(player1Health<=0 | player2Health<=0){
+        decision.innerHTML="We have a winner!";
+    }
+}
+
 document.addEventListener('keydown', logKey);
 let battlecheck = true;
 function logKey(e) {
     console.log(`${e.code}`);
     player2.takeDamage(player1.keyCheck(e.code));
-    
+    winCheck(player1.getHealth, player2.getHealth);
     if(collisionCheck(player1.getRow,player1.getCol,player2.getRow,player2.getCol)&&battlecheck){
         console.log("robot collision!");
         document.getElementById("battleScreen").style.display="block";
@@ -256,7 +265,7 @@ function logKey(e) {
         battlecheck=false;
     }
     player1.takeDamage(player2.keyCheck(e.code));
-    
+    winCheck(player1.getHealth, player2.getHealth);
     if(collisionCheck(player1.getRow,player1.getCol,player2.getRow,player2.getCol)&&battlecheck){
         console.log("robot collision!");
         document.getElementById("battleScreen").style.display="block";
