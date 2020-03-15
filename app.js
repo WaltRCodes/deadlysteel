@@ -168,6 +168,19 @@ class robot{
     }
 }
 
+class battery{
+    constructor(row,column){
+        this.row=row;
+        this.column=column;
+    }
+    get getRow(){
+        return this.row;
+    }
+    get getCol(){
+        return this.column;
+    }
+}
+
 let player1;
 //this function starts the game
 const startGame = () =>{
