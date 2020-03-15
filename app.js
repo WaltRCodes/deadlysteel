@@ -30,19 +30,28 @@ class robot{
             }
         } else{
             if(code===this.upKey){
+                document.getElementById(`${this.screenSide}`).style.height="200px";
+                document.getElementById(`${this.screenSide}`).style.width="200px";
                 document.getElementById(`${this.screenSide}`).style.animation='';
                 document.getElementById(`${this.screenSide}`).style.backgroundImage=`url('./assets/sprites/${this.name}_stand_${this.screenSide}.png')`;
                 document.getElementById(`${this.screenSide}`).style.animation=`${this.name}shoot${this.screenSide}  1s ease-in-out 1`;
+                document.getElementById(`${this.screenSide}`).style.margin="40px";
                 return this.attackPower+(this.batteries*5);
             } else if(code===this.leftKey){
                 console.log(`url('./assets/sprites/${this.name}_shield_${this.screenSide}.png')`);
                 document.getElementById(`${this.screenSide}`).style.animation='';
                 document.getElementById(`${this.screenSide}`).style.backgroundImage=`url('./assets/sprites/${this.name}_shield_${this.screenSide}.png')`;
+                document.getElementById(`${this.screenSide}`).style.height="270px";
+                document.getElementById(`${this.screenSide}`).style.width="270px";
+                document.getElementById(`${this.screenSide}`).style.margin="0";
             } else if(code===this.rightKey){
+                document.getElementById(`${this.screenSide}`).style.height="200px";
+                document.getElementById(`${this.screenSide}`).style.width="200px";
                 document.getElementById(`${this.screenSide}`).style.animation='';
                 document.getElementById(`${this.screenSide}`).style.backgroundImage=`url('./assets/sprites/${this.name}_stand_${this.screenSide}.png')`;
                 document.getElementById(`${this.screenSide}`).style.animation=`${this.name}punch${this.screenSide}  1s ease-in-out 1`;
-               return this.attackPower;
+                document.getElementById(`${this.screenSide}`).style.margin="40px";
+                return this.attackPower;
             }
         }
         return 0;
@@ -51,6 +60,7 @@ class robot{
     offTheGrid=()=>{
         this.onTheGrid=false;
         document.getElementById(`${this.screenSide}`).style.backgroundImage=`url('./assets/sprites/${this.name}_stand_${this.screenSide}.png')`;
+        document.getElementById(`${this.screenSide}`).style.margin="40px";
         document.getElementById(`${this.screenSide}Instructions`).innerHTML=`
         <p>${this.name} Health: <span id="${this.screenSide}HealthUnits">${this.health}</span></p>
         <p>${this.upKey} to shoot laser(-1)battery</p>
