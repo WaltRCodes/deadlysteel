@@ -31,13 +31,16 @@ class robot{
         } else{
             if(code===this.upKey){
                 document.getElementById(`${this.screenSide}`).style.animation='';
+                document.getElementById(`${this.screenSide}`).style.backgroundImage=`url('./assets/sprites/${this.name}_stand_${this.screenSide}.png')`;
                 document.getElementById(`${this.screenSide}`).style.animation=`${this.name}shoot${this.screenSide}  1s ease-in-out 1`;
                 return this.attackPower+(this.batteries*5);
             } else if(code===this.leftKey){
-                this.moveLeft();
-            } else if(code===this.rightKey){
-                this.moveRight();
+                console.log(`url('./assets/sprites/${this.name}_shield_${this.screenSide}.png')`);
                 document.getElementById(`${this.screenSide}`).style.animation='';
+                document.getElementById(`${this.screenSide}`).style.backgroundImage=`url('./assets/sprites/${this.name}_shield_${this.screenSide}.png')`;
+            } else if(code===this.rightKey){
+                document.getElementById(`${this.screenSide}`).style.animation='';
+                document.getElementById(`${this.screenSide}`).style.backgroundImage=`url('./assets/sprites/${this.name}_stand_${this.screenSide}.png')`;
                 document.getElementById(`${this.screenSide}`).style.animation=`${this.name}punch${this.screenSide}  1s ease-in-out 1`;
                return this.attackPower;
             }
@@ -131,7 +134,14 @@ class robot{
     }
     //this function handles damaging the robot
     takeDamage(damage){
-        this.health-=damage;
+        console.log(document.getElementById(`${this.screenSide}`).style.backgroundImage===`url("./assets/sprites/${this.name}_shield_${this.screenSide}.png")`);
+        if(document.getElementById(`${this.screenSide}`).style.backgroundImage===`url("./assets/sprites/${this.name}_shield_${this.screenSide}.png")`){
+            damage=damage/2;
+            this.health-=damage;
+        } else {
+            this.health-=damage;
+        }
+        
         if(!this.onTheGrid){
             document.getElementById(`${this.screenSide}HealthUnits`).innerHTML=`${this.health}`;
         }
