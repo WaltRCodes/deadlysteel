@@ -288,6 +288,19 @@ const winCheck =(player1Health,player2Health)=>{
     }
 }
 
+
+var timeleft = 30;
+var timer = setInterval(function(){
+  if(timeleft <= 0){
+    clearInterval(timer);
+    document.getElementById("timer").innerHTML = "Finished";
+  } else {
+    document.getElementById("timer").innerHTML = timeleft + " seconds remaining";
+  }
+  timeleft -= 1;
+}, 1000);
+
+
 document.addEventListener('keydown', logKey);
 let battlecheck = true;
 function logKey(e) {
