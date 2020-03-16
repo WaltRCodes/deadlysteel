@@ -80,7 +80,7 @@ class robot{
 
     moveDown = () =>{
         this.htmlElement.style.animation=`${this.name}walkDown  1s ease-in-out infinite`;
-        if (this.row!=3){
+        if (this.row!=5){
             this.row++;
             this.htmlElement.style.gridRow=this.row;
         }
@@ -205,7 +205,7 @@ let batteries =[];
 // console.log(battery1.getRow);
 // console.log(battery1.getCol);
 for(let i=0;i<6;i++){
-    batteries[i]=new battery(getRandomInt(1,3),getRandomInt(2,5));
+    batteries[i]=new battery(getRandomInt(1,5),getRandomInt(2,5));
     document.getElementById("gameBoard").innerHTML+=`
     <div id="battery${i}" style="background-repeat: no-repeat; background-size: 100% 100%; height:100px; width:100px; grid-column: ${batteries[i].getCol};
     grid-row: ${batteries[i].getRow};"></div>
@@ -217,68 +217,14 @@ let player2;
 let timeleft = 600;
 //this function starts the game
 const startGame = () =>{
-    // let player1 = new robot("player1",document.getElementById("player1"),1,1);
-    // console.log(player1.getHealth +" "+ player1.getAttackPower);
-    // player1.takeDamage(50);
-    // player1.takeDamage(50);
-    // player1.getBattery();
-    // console.log(player1.getAttackPower);
-    // player1.removeBattery();
-    // console.log(player1.getAttackPower);
+    
     player1 = new robot("P1",document.getElementById("player1"),1,1,"ArrowUp","ArrowDown","ArrowLeft","ArrowRight","left");
-    player2 = new robot("P2",document.getElementById("player2"),3,6,"KeyW","KeyS","KeyA","KeyD","right");
+    player2 = new robot("P2",document.getElementById("player2"),5,6,"KeyW","KeyS","KeyA","KeyD","right");
     timeleft = 30;
     document.getElementById('startscreen').style.animation=`blowInModal .5s  forwards`;
 }
 
-//insert these 3 and 4 keyboard keys into the class later
-// let player1 = document.getElementById("player1");
-// let player1col=1;
-// let player1row=1;
-// player1.style.gridColumn=player1col;
-// player1.style.gridRow=player1row;
-// player1.style.animation="walkRight 1s ease-in-out infinite";
 
-// const moveDown = (player) =>{
-//     player.style.animation="walkDown  1s ease-in-out infinite";
-//     if (player1row!=3){
-//         player1row++;
-//         player.style.gridRow=player1row;
-//     }
-// }
-// const moveUp = (player) =>{
-//     player.style.animation="walkUp  1s ease-in-out infinite";
-//     if (player1row!=1){
-//         player1row--;
-//         player.style.gridRow=player1row;
-//     }
-// }
-// const moveLeft = (player) =>{
-//     player.style.animation="walkLeft  1s ease-in-out infinite";
-//     if (player1col!=1){
-//         player1col--;
-//         player.style.gridColumn=player1col;
-//     }
-// }
-// const moveRight = (player) =>{
-//     player.style.animation="walkRight  1s ease-in-out infinite";
-//     if (player1col!=6){
-//         player1col++;
-//         player.style.gridColumn=player1col;
-//     }
-// }
-    
-// function moveCheck(code,playerObj){
-//     if(code===playerObj.getUpKey){
-//         playerObj.moveUp();
-//     } else if(code===playerObj.getDownKey){
-//         playerObj.moveDown();
-//     } else if(code===playerObj.getLeftKey){
-//         playerObj.moveLeft();
-//     } else if(code===playerObj.getRightKey){
-//         playerObj.moveRight();
-//     }
-// }
 
 const collisionCheck=(obj1row,obj1col,obj2row,obj2col)=>{
     if(obj1row===obj2row&&obj1col===obj2col){
@@ -358,15 +304,6 @@ function logKey(e) {
         }
 
     }
-    
-    // if(e.code==="ArrowUp"){
-    //     moveUp(player1);
-    // } else if(e.code==="ArrowDown"){
-    //     moveDown(player1);
-    // } else if(e.code==="ArrowLeft"){
-    //     moveLeft(player1);
-    // } else if(e.code==="ArrowRight"){
-    //     moveRight(player1);
-    // }
+
     
 }

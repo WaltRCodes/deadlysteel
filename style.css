@@ -4,10 +4,9 @@
 #player1{
     height:100px;
     width:100px;
-    /*background-image: url("./assets/sprites/player1_walk_down_pt1.png");*/
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    /*animation: walkRight 1s ease-in-out infinite;*/
+    
 }
 #player2{
     height:100px;
@@ -215,7 +214,9 @@
 .grid{
     display: grid;
     grid-template-columns: repeat(6, 100px);
-    grid-template-rows: repeat(3, 100px);
+    grid-template-rows: repeat(5, 100px);
+    background-image: url("./assets/sprites/Metal_Plate.png");
+    background-repeat: round;
 }
 #battleScreen{
     background-color: green;
@@ -227,6 +228,10 @@
     position: fixed;
     top: 0;
     left:0;
+    background-image: url(https://i.pinimg.com/originals/f3/ff/b2/f3ffb2d584f09068aee6e9360dc13b34.gif);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    color:white;
 }
 #startscreen{
     background-color: grey;
@@ -238,6 +243,10 @@
     position: fixed;
     top: 0;
     left:0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 50px;
 }
 
 @keyframes blowUpModal {
@@ -269,13 +278,20 @@
     align-items: center;
     text-align: center;
     padding: 20px;
-    background-color: blue;
+    
 }
 .playerStats{
     display:flex;
     flex-direction: row;
 }
-/*#x{
-    grid-column: 6;
-    grid-row: 3;
-}*/
+#decision{
+    width:100%;
+    text-align: center;
+}
+body{
+    background-image: url(https://data.whicdn.com/images/278447034/original.gif);
+    background-repeat: round;
+}
+#timer{
+    text-align: center;
+}
