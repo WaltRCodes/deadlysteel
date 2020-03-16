@@ -213,6 +213,8 @@ for(let i=0;i<6;i++){
     document.getElementById(`battery${i}`).style.backgroundImage=`url('./assets/sprites/battery.png')`;
 }
 let player1;
+let player2;
+let timeleft = 60;
 //this function starts the game
 const startGame = () =>{
     // let player1 = new robot("player1",document.getElementById("player1"),1,1);
@@ -224,9 +226,11 @@ const startGame = () =>{
     // player1.removeBattery();
     // console.log(player1.getAttackPower);
     player1 = new robot("P1",document.getElementById("player1"),1,1,"ArrowUp","ArrowDown","ArrowLeft","ArrowRight","left");
-
+    player2 = new robot("P2",document.getElementById("player2"),3,6,"KeyW","KeyS","KeyA","KeyD","right");
+    timeleft = 30;
+    document.getElementById('startscreen').style.animation=`blowInModal .5s  forwards`;
 }
-startGame();
+
 //insert these 3 and 4 keyboard keys into the class later
 // let player1 = document.getElementById("player1");
 // let player1col=1;
@@ -263,7 +267,6 @@ startGame();
 //         player.style.gridColumn=player1col;
 //     }
 // }
-let player2 = new robot("P2",document.getElementById("player2"),3,6,"KeyW","KeyS","KeyA","KeyD","right");
     
 // function moveCheck(code,playerObj){
 //     if(code===playerObj.getUpKey){
@@ -295,8 +298,8 @@ const winCheck =(player1Health,player2Health)=>{
 }
 
 
-var timeleft = 30;
-var timer = setInterval(function(){
+
+let timer = setInterval(function(){
   if(timeleft <= 0){
     clearInterval(timer);
     document.getElementById("timer").innerHTML = "Finished";
