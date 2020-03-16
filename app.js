@@ -71,6 +71,7 @@ class robot{
         document.getElementById(`${this.screenSide}`).style.margin="40px";
         document.getElementById(`${this.screenSide}Instructions`).innerHTML=`
         <p>${this.name} Health: <span id="${this.screenSide}HealthUnits">${this.health}</span></p>
+        <p>Batteries: <span id="${this.name}battlebattery">${this.batteries}</span</p>
         <p>${this.upKey} to shoot laser(-1)battery</p>
         <p>${this.leftKey} to block</p>
         <p>${this.rightKey} to punch</p>`;
@@ -111,6 +112,9 @@ class robot{
         this.htmlElement.style.gridColumn=this.column;
         this.htmlElement.style.gridRow=this.row;
         this.htmlElement.style.animation=`${this.name}walkDown 1s ease-in-out infinite`;
+        document.getElementById(`${this.name}stats`).innerHTML=`
+        <p>${this.name} Health: ${this.health}</p>
+        <p>Batteries: <span id="${this.name}battery">${this.batteries}</span</p>`;
     }
     //this method returns the robot's health
     get getHealth(){
@@ -145,10 +149,12 @@ class robot{
     //this function updates the attack power when a robot gets a battery
     getBattery(){
         this.batteries++;
+        document.getElementById(`${this.name}battery`).innerHTML=this.batteries;
     }
     //this function removes the battery from the robot
     removeBattery(){
         this.batteries--;
+        document.getElementById(`${this.name}battlebattery`).innerHTML=this.batteries;
     }
     //this function handles damaging the robot
     takeDamage(damage){

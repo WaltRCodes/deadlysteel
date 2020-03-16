@@ -260,6 +260,10 @@
     padding: 20px;
     background-color: blue;
 }
+.playerStats{
+    display:flex;
+    flex-direction: row;
+}
 /*#x{
     grid-column: 6;
     grid-row: 3;
