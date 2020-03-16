@@ -214,7 +214,7 @@ for(let i=0;i<6;i++){
 }
 let player1;
 let player2;
-let timeleft = 60;
+let timeleft = 600;
 //this function starts the game
 const startGame = () =>{
     // let player1 = new robot("player1",document.getElementById("player1"),1,1);
@@ -302,7 +302,12 @@ const winCheck =(player1Health,player2Health)=>{
 let timer = setInterval(function(){
   if(timeleft <= 0){
     clearInterval(timer);
-    document.getElementById("timer").innerHTML = "Finished";
+    //document.getElementById("timer").innerHTML = "Finished";
+    document.getElementById("battleScreen").style.display="block";
+    document.getElementById("battleScreen").style.animation=`blowUpModal .5s  forwards`;
+    player1.offTheGrid();
+    player2.offTheGrid();
+    battlecheck=false;
   } else {
     document.getElementById("timer").innerHTML = timeleft + " seconds remaining";
   }
