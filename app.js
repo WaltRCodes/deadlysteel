@@ -319,42 +319,46 @@ document.addEventListener('keydown', logKey);
 let battlecheck = true;
 function logKey(e) {
     console.log(`${e.code}`);
-    player2.takeDamage(player1.keyCheck(e.code));
-    for(let i=0;i<6;i++){
-        
-        if(collisionCheck(player1.getRow,player1.getCol,batteries[i].getRow,batteries[i].getCol)){
-            document.getElementById(`battery${i}`).style.backgroundImage=``;
-            player1.getBattery();
+    if(player1!=undefined&&player2!=undefined){
+        player2.takeDamage(player1.keyCheck(e.code));
+        for(let i=0;i<6;i++){
+            
+            if(collisionCheck(player1.getRow,player1.getCol,batteries[i].getRow,batteries[i].getCol)){
+                document.getElementById(`battery${i}`).style.backgroundImage=``;
+                player1.getBattery();
+            }
+            
         }
-        
-    }
-    winCheck(player1.getHealth, player2.getHealth);
-    if(collisionCheck(player1.getRow,player1.getCol,player2.getRow,player2.getCol)&&battlecheck){
-        console.log("robot collision!");
-        document.getElementById("battleScreen").style.display="block";
-        document.getElementById("battleScreen").style.animation=`blowUpModal .5s  forwards`;
-        player1.offTheGrid();
-        player2.offTheGrid();
-        battlecheck=false;
-    }
-    player1.takeDamage(player2.keyCheck(e.code));
-    for(let i=0;i<6;i++){
-        
-        
-        if(collisionCheck(player2.getRow,player2.getCol,batteries[i].getRow,batteries[i].getCol)){
-            document.getElementById(`battery${i}`).style.backgroundImage=``;
-            player2.getBattery();
+        winCheck(player1.getHealth, player2.getHealth);
+        if(collisionCheck(player1.getRow,player1.getCol,player2.getRow,player2.getCol)&&battlecheck){
+            console.log("robot collision!");
+            document.getElementById("battleScreen").style.display="block";
+            document.getElementById("battleScreen").style.animation=`blowUpModal .5s  forwards`;
+            player1.offTheGrid();
+            player2.offTheGrid();
+            battlecheck=false;
         }
+        player1.takeDamage(player2.keyCheck(e.code));
+        for(let i=0;i<6;i++){
+            
+            
+            if(collisionCheck(player2.getRow,player2.getCol,batteries[i].getRow,batteries[i].getCol)){
+                document.getElementById(`battery${i}`).style.backgroundImage=``;
+                player2.getBattery();
+            }
+        }
+        winCheck(player1.getHealth, player2.getHealth);
+        if(collisionCheck(player1.getRow,player1.getCol,player2.getRow,player2.getCol)&&battlecheck){
+            console.log("robot collision!");
+            document.getElementById("battleScreen").style.display="block";
+            document.getElementById("battleScreen").style.animation=`blowUpModal .5s  forwards`;
+            player1.offTheGrid();
+            player2.offTheGrid();
+            battlecheck=false;
+        }
+
     }
-    winCheck(player1.getHealth, player2.getHealth);
-    if(collisionCheck(player1.getRow,player1.getCol,player2.getRow,player2.getCol)&&battlecheck){
-        console.log("robot collision!");
-        document.getElementById("battleScreen").style.display="block";
-        document.getElementById("battleScreen").style.animation=`blowUpModal .5s  forwards`;
-        player1.offTheGrid();
-        player2.offTheGrid();
-        battlecheck=false;
-    }
+    
     // if(e.code==="ArrowUp"){
     //     moveUp(player1);
     // } else if(e.code==="ArrowDown"){
