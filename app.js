@@ -181,12 +181,23 @@ class battery{
     }
 }
 
-function getRandomInt(min, max) {
+const getRandomInt =(min, max) =>{
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-
+}
+let batteries =[];
+// let battery1=new battery(getRandomInt(1,3),getRandomInt(2,5));
+// console.log(battery1.getRow);
+// console.log(battery1.getCol);
+for(let i=0;i<6;i++){
+    batteries[i]=new battery(getRandomInt(1,3),getRandomInt(2,5));
+    document.getElementById("gameBoard").innerHTML+=`
+    <div id="battery${i}" style="background-repeat: no-repeat; background-size: 100% 100%; height:100px; width:100px; grid-column: ${batteries[i].getCol};
+    grid-row: ${batteries[i].getRow};"></div>
+    `;
+    document.getElementById(`battery${i}`).style.backgroundImage=`url('./assets/sprites/battery.png')`;
+}
 let player1;
 //this function starts the game
 const startGame = () =>{
