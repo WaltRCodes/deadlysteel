@@ -247,8 +247,14 @@
     align-items: center;
     flex-direction: column;
     padding-top: 50px;
+    
 }
-
+button{
+    padding:15px;
+    margin-top: 15px;
+    font-size: larger;
+    
+}
 @keyframes blowUpModal {
     0% {
       transform:scale(0);

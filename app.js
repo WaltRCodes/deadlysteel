@@ -16,7 +16,7 @@ class robot{
         this.batteries=0;
         this.setUp();
     }
-
+    //this keyCheck function handles the various animations to be played either on the grid or battle screen whenever keys are pressed
     keyCheck =(code)=>{
         if(this.onTheGrid){
             if(code===this.upKey){
@@ -64,7 +64,7 @@ class robot{
         }
         return 0;
     }
-
+    //this function sets up the battle screen when the timer runs out or the robots collide
     offTheGrid=()=>{
         this.onTheGrid=false;
         document.getElementById(`${this.screenSide}`).style.backgroundImage=`url('./assets/sprites/${this.name}_stand_${this.screenSide}.png')`;
@@ -72,7 +72,7 @@ class robot{
         document.getElementById(`${this.screenSide}Instructions`).innerHTML=`
         <p>${this.name} Health: <span id="${this.screenSide}HealthUnits">${this.health}</span></p>
         <p>Batteries: <span id="${this.name}battlebattery">${this.batteries}</span</p>
-        <p>${this.upKey} to shoot laser(-1)battery</p>
+        <p>${this.upKey} to shoot laser(removes one battery)</p>
         <p>${this.leftKey} to block</p>
         <p>${this.rightKey} to punch</p>`;
 
@@ -159,17 +159,18 @@ class robot{
     //this function handles damaging the robot
     takeDamage(damage){
         console.log(document.getElementById(`${this.screenSide}`).style.backgroundImage===`url("./assets/sprites/${this.name}_shield_${this.screenSide}.png")`);
+        //this updates the health value and accounts for blocking
         if(document.getElementById(`${this.screenSide}`).style.backgroundImage===`url("./assets/sprites/${this.name}_shield_${this.screenSide}.png")`){
             damage=damage/2;
             this.health-=damage;
         } else {
             this.health-=damage;
         }
-        
+        //this populates the health grid value
         if(!this.onTheGrid){
             document.getElementById(`${this.screenSide}HealthUnits`).innerHTML=`${this.health}`;
         }
-        
+        //this triggers the blowIn animation upon player death
         if(this.health<=0){
             console.log(`${this.name} has lost`);
             
@@ -181,7 +182,7 @@ class robot{
         }
     }
 }
-
+// this is the class for the battery holds the battery row and column
 class battery{
     constructor(row,column){
         this.row=row;
@@ -194,16 +195,14 @@ class battery{
         return this.column;
     }
 }
-
+//this function creates a random int to be used with the battery placement loop
 const getRandomInt =(min, max) =>{
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 let batteries =[];
-// let battery1=new battery(getRandomInt(1,3),getRandomInt(2,5));
-// console.log(battery1.getRow);
-// console.log(battery1.getCol);
+// this function creates the batteries that appear on the board
 for(let i=0;i<6;i++){
     batteries[i]=new battery(getRandomInt(1,5),getRandomInt(2,5));
     document.getElementById("gameBoard").innerHTML+=`
@@ -215,7 +214,7 @@ for(let i=0;i<6;i++){
 let player1;
 let player2;
 let timeleft = 600;
-//this function starts the game
+//this function starts the game and initilizes the players
 const startGame = () =>{
     
     player1 = new robot("P1",document.getElementById("player1"),1,1,"ArrowUp","ArrowDown","ArrowLeft","ArrowRight","left");
@@ -225,7 +224,7 @@ const startGame = () =>{
 }
 
 
-
+//this checks to see if two objects on the board are colliding
 const collisionCheck=(obj1row,obj1col,obj2row,obj2col)=>{
     if(obj1row===obj2row&&obj1col===obj2col){
         return true;
@@ -233,7 +232,7 @@ const collisionCheck=(obj1row,obj1col,obj2row,obj2col)=>{
         return false;
     }
 }
-
+//this function checks for a winner to the game
 const winCheck =(player1Health,player2Health)=>{
     let decision = document.getElementById("decision");
     if(player1Health<=0&&player2Health<=0){
@@ -244,7 +243,7 @@ const winCheck =(player1Health,player2Health)=>{
 }
 
 
-
+//this function controls the timer
 let timer = setInterval(function(){
   if(timeleft <= 0){
     clearInterval(timer);
@@ -262,20 +261,32 @@ let timer = setInterval(function(){
 
 
 document.addEventListener('keydown', logKey);
+//this check is used to run functions exclisive to the grid portion of the game
 let battlecheck = true;
+//this function triggers every time a key is pressed
 function logKey(e) {
+    //e.code is the key pressed on the keyboard
     console.log(`${e.code}`);
+    //this checks to make sures the player has started the ame before calling any functions
     if(player1!=undefined&&player2!=undefined){
+        //this combination of functions checks the first players action in order to see if they have a result on the second player
         player2.takeDamage(player1.keyCheck(e.code));
-        for(let i=0;i<6;i++){
-            
-            if(collisionCheck(player1.getRow,player1.getCol,batteries[i].getRow,batteries[i].getCol)){
-                document.getElementById(`battery${i}`).style.backgroundImage=``;
-                player1.getBattery();
+        //this check is done so that batteries can no longer be connected once in battle
+        if(battlecheck){
+            //this uses the collisionCheck function inorder to check to see if a player has stepped over a battery
+            for(let i=0;i<6;i++){
+                        
+                if(collisionCheck(player1.getRow,player1.getCol,batteries[i].getRow,batteries[i].getCol)){
+                    document.getElementById(`battery${i}`).style.backgroundImage=``;
+                    player1.getBattery();
+                }
+                
             }
-            
         }
+        
+        //with all the keys pressed, a check must also be done in order to check if a player has won
         winCheck(player1.getHealth, player2.getHealth);
+        //this checks to see if the player robots have landed on the same space
         if(collisionCheck(player1.getRow,player1.getCol,player2.getRow,player2.getCol)&&battlecheck){
             console.log("robot collision!");
             document.getElementById("battleScreen").style.display="block";
@@ -284,15 +295,23 @@ function logKey(e) {
             player2.offTheGrid();
             battlecheck=false;
         }
+        //the same actions repeat for player 2
         player1.takeDamage(player2.keyCheck(e.code));
-        for(let i=0;i<6;i++){
+        
+        if(battlecheck){
+
+            for(let i=0;i<6;i++){
             
             
-            if(collisionCheck(player2.getRow,player2.getCol,batteries[i].getRow,batteries[i].getCol)){
-                document.getElementById(`battery${i}`).style.backgroundImage=``;
-                player2.getBattery();
+                if(collisionCheck(player2.getRow,player2.getCol,batteries[i].getRow,batteries[i].getCol)){
+                    document.getElementById(`battery${i}`).style.backgroundImage=``;
+                    player2.getBattery();
+                }
             }
+
         }
+        
+        
         winCheck(player1.getHealth, player2.getHealth);
         if(collisionCheck(player1.getRow,player1.getCol,player2.getRow,player2.getCol)&&battlecheck){
             console.log("robot collision!");

@@ -8,21 +8,25 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
+    <!--This is the start screen div that minimizes upon pressing the start game button-->
     <div id="startscreen">
         <h1>Deadly Steel</h1>
         <p style="padding-left:100px; padding-right:100px;">Battle your friends with robots. One robot moves with WASD and the other moves with arrow keys. Batteries increase the robot's power and allow the robot to do more damage once the two players fight each other. The players fight once they collide on the grid or time runs out!</p>
         <button onclick="startGame();">start game</button>
     </div>
+    <!--This div shows the player stats-->
     <div class="playerStats">
         <div  id="P1stats"></div>
         <div  id="timer"></div>
         <div  id="P2stats"></div>
     </div>
+    <!--This is the grid where the robots-->
     <div class="grid" id="gameBoard">
         <div id="player1">
         </div>
         <div id="player2"></div>
     </div>
+    <!--this is the battle screen that appears when robots collide or time runs out-->
     <div id="battleScreen">
         <div class="row">
             <div class="col" id="leftHolder">
